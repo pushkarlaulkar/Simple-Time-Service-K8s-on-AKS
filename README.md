@@ -24,7 +24,7 @@ Instructions to deploy **Simple Time Service** on Azure Kubernetes Service using
 
 -----------------------------
 
-Instructions to deploy **YoPass** on Azure Kubernetes Service using your own nginx ingress
+Instructions to deploy **Simple Time Service** on Azure Kubernetes Service using your own nginx ingress
   1. Deploy AKS cluster through Azure portal.
   2. Create a namespace. ` kubectl create ns sts `
   3. Create a tls secret named ` cert-tls ` which has the domain's certificate & private key by running below command. The domain's .crt & .key file should already be present.
