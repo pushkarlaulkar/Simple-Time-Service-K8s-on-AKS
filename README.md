@@ -72,7 +72,7 @@ To install this app using Helm using the default **App Routing** add on, perform
      NAME    TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
      nginx   LoadBalancer   10.0.58.180   20.174.45.64   80:32767/TCP,443:30598/TCP   110s
      ```
-  3. Run the command to install **YoPass**
+  3. Run the command to install **Simple Time Service**
 
      ```
      helm install sts ./helm --namespace sts --set ingressClassName="web-app-routing" --set domain_name=your_preferred_fqdn --set-file tlsSecret.cert=domain_name.crt --set-file tlsSecret.key=domain_name.key
@@ -105,7 +105,7 @@ To install this app using Helm using your own nginx ingress, perform below steps
      NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
      nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.58.180   20.174.45.64   80:32767/TCP,443:30598/TCP   110s
      ```
-  4. Run the command to install **YoPass**
+  4. Run the command to install **Simple Time Service**
 
      ```
      helm install sts ./helm --namespace sts --set ingressClassName="nginx" --set domain_name=your_preferred_fqdn --set-file tlsSecret.cert=domain_name.crt --set-file tlsSecret.key=domain_name.key
