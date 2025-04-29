@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sts
+  namespace: sts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sts
+  template:
+    metadata:
+      labels:
+        app: sts
+    spec:
+      containers:
+        - name: sts
+          image: plaulkar/simple-time-service:latest
+          ports:
+            - containerPort: 80

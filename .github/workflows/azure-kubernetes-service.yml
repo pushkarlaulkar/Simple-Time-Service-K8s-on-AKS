@@ -1,0 +1,43 @@
+name: Deploy To AKS
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches:
+      - main  # Trigger on push to main branch
+
+
+#env:
+#  AZURE_CONTAINER_REGISTRY: "your-azure-container-registry"
+#  CONTAINER_NAME: "your-container-name"
+#  RESOURCE_GROUP: "your-resource-group"
+#  CLUSTER_NAME: "your-cluster-name"
+#  DEPLOYMENT_MANIFEST_PATH: "your-deployment-manifest-path"
+
+jobs:
+  Deploy-To-AKS:
+    runs-on: ubuntu-latest
+    environment:
+      name: 'AKS'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Logs in with your Azure credentials
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      #- name: Get AKS Credentials
+      #  run: |
+      #    az aks get-credentials --resource-group ${{ secrets.AKS_RESOURCE_GROUP }} --name ${{ secrets.AKS_CLUSTER_NAME }} --overwrite-existing
+
+      #- name: Create Kubernetes Namespace
+      #  run: |
+      #    kubectl create namespace my-namespace || echo "Namespace already exists"
+
+      #- name: Verify Namespace Creation
+      #  run: |
+      #    kubectl get namespaces
